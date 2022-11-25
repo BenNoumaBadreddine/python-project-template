@@ -62,3 +62,39 @@ Using the terminal, change the current working directory to your local project
 ```
 pre-commit install
 ```
+## Add the local python project to your Github
+* Open the terminal, change the current working directory to your local project.
+* Initialize the local directory as a Git repository.
+```
+git init
+```
+* Stage and commit all the files in your project:
+```
+git add . && git commit -m "initial commit"
+```
+* To create a repository for your project on GitHub, use the ```gh repo create ``` subcommand.
+
+If it is the first time you are adding a project to your GitHub you need to set up few things:
+- First, install ```gh```:
+```
+poetry add gh
+```
+```
+brew install gh
+```
+- Now, when you type ```gh repo create ``` on the terminal, it will ask you to login:
+![img.png](images/git_login.png)
+-Go to the GitHub website and generate new classic token:
+![img.png](images/GitHub_classic_token.png)
+- Configure SourceTree:
+![img.png](images/sourcetree_configure_with_github.png)
+- Configure Pycharm:
+![img.png](images/pycharm_configure_with_github.png)
+
+
+
+
+
+
+
+
