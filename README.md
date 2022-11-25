@@ -62,7 +62,7 @@ Using the terminal, change the current working directory to your local project
 ```
 pre-commit install
 ```
-## Add the local python project to your Github
+## Add the local python project to your GitHub
 * Open the terminal, change the current working directory to your local project.
 * Initialize the local directory as a Git repository.
 ```
@@ -90,7 +90,28 @@ brew install gh
 ![img.png](images/sourcetree_configure_with_github.png)
 - Configure Pycharm:
 ![img.png](images/pycharm_configure_with_github.png)
-
+- GitHub's authentication: 
+- Solution 1: 
+- Create a file ```script.sh``` containing the following:
+```
+#!/bin/env bash
+set -u
+echo "$GITHUB_TOKEN" > .githubtoken
+unset GITHUB_TOKEN
+gh auth login --with-token < .githubtoken
+rm .githubtoken
+gh release create $VERSION --notes "Release $VERSION. $COMMIT_MESSAGE"
+```
+- Create a configuration file with adding some environmental variables:
+![img.png](images/github_authen_cli_script_sh.png)
+- Execute the shell script to validate the authentication.
+After executing that script you will be able to create a repo using 
+```bash
+gh repo create
+```
+![img.png](images/add_remote_repo_using_cli.png)
+To set the password and commit/push changes:
+![img.png](images/github_add_changes_with_authentification.png)
 
 
 
